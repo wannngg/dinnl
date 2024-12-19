@@ -1,0 +1,1623 @@
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #457b9d;
+    --background-color: #f1faee;
+    --text-color: #1d3557;
+    --light-color: #a8dadc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* 首页英雄区样式 */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #c1121f;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100vh;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-400%); /* 移动4张图片的距离 */
+    }
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.about, .skills {
+    margin: 2rem 0;
+}
+
+.skill-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.skill {
+    text-align: center;
+}
+
+.skill i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+.footer-links {
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    margin: 0 1rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.heritage-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.heritage-card:hover {
+    transform: translateY(-5px);
+}
+
+.heritage-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.heritage-card .level {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.footer-section a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    margin: 0 1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.heritage-map-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heritage-map {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.heritage-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.heritage-info {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.heritage-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.heritage-info p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.heritage-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.heritage-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.learn-more {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.share-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.heritage-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+/* 高亮动画 */
+@keyframes highlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(var(--primary-color), 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(var(--primary-color), 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--primary-color), 0);
+    }
+}
+
+.heritage-map img {
+    transition: transform 0.3s ease;
+}
+
+.heritage-map img:hover {
+    transform: scale(1.02);
+}
+
+/* 添加鼠标悬停效果 */
+area {
+    cursor: pointer;
+}
+
+/* 响应式设计调整 */
+@media (max-width: 768px) {
+    .heritage-map-container {
+        padding: 1rem;
+    }
+}
+
+.heritage-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.heritage-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.heritage-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.map-info-window {
+    padding: 10px;
+}
+
+.map-info-window h4 {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+}
+
+.map-info-window button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.map-info-window button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* 地图信息窗口样式 */
+.custom-info-window {
+    padding: 15px;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info-header h4 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+.level-tag {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+}
+
+.level-tag.world {
+    background-color: #e63946;
+}
+
+.level-tag.national {
+    background-color: #457b9d;
+}
+
+.info-content {
+    margin: 10px 0;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: #f1faee;
+    color: #1d3557;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.info-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+.info-actions button {
+    flex: 1;
+    min-width: 100px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
+
+.timeline-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.details-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.info-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.heritage-btn.active {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 地图平移动画 */
+.BMap_mask {
+    transition: all 0.3s ease-in-out;
+}
+
+/* 信息窗口动画 */
+.custom-info-window {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
+
+/* 添加或修改地图容器样式 */
+#baiduMap {
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.heritage-map {
+    width: 100%;
+    height: 500px;
+    margin: 20px 0;
+    position: relative;
+}
+
+#baiduMap {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* 详情模态框样式 */
+.details-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.details-modal.show {
+    opacity: 1;
+}
+
+.details-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.details-modal.show .details-content {
+    transform: translateY(0);
+}
+
+.close-details {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.details-body {
+    margin-top: 1rem;
+}
+
+.details-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.details-features {
+    margin: 1.5rem 0;
+}
+
+.details-features h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.details-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.details-features li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.details-features li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.details-info {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.details-info p {
+    margin: 0.5rem 0;
+}
+
+.details-info strong {
+    color: var(--secondary-color);
+}
+
+/* 时间轴模态框样式 */
+.timeline-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.timeline-modal.show {
+    opacity: 1;
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-timeline {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.timeline {
+    margin-top: 2rem;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--primary-color);
+}
+
+.timeline-item {
+    margin: 2rem 0;
+    padding-left: 100px;
+    position: relative;
+}
+
+.timeline-date {
+    position: absolute;
+    left: 0;
+    width: 80px;
+    text-align: right;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.timeline-info {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-info h4 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-info p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 添加图表容器样式 */
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.chart-wrapper {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .chart-wrapper {
+        flex: 100%;
+    }
+}
+
+/* 添加联系我们部分样式 */
+#contact-section {
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #c1121f;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+#amap-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 添加导航按钮样式 */
+.nav-btn {
+    background-color: #4CAF50;  /* 绿色 */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 添加非遗介绍和上传区域样式 */
+.heritage-intro {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.intro-text {
+    margin-bottom: 20px;
+}
+
+.intro-text h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.upload-section {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.upload-section h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.upload-area:hover {
+    border-color: #e63946;
+    background: #f8f9fa;
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-placeholder i {
+    font-size: 2.5rem;
+    color: #457b9d;
+}
+
+/* 更新图片显示区域样式 */
+.uploaded-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.image-container {
+    position: relative;
+    padding-top: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+.delete-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .delete-image {
+    opacity: 1;
+}
+
+.delete-image:hover {
+    background: #e63946;
+    color: white;
+}
+
+/* 热门景点样式 */
+.spots-container {
+    padding: 20px;
+}
+
+.spots-container h4 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.spot-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.spot-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.spot-item:hover {
+    transform: translateY(-5px);
+}
+
+.spot-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.spot-info {
+    padding: 15px;
+}
+
+.spot-info h5 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.spot-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .spot-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 更新热门景点样式 */
+.upload-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-spot-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-spot-btn:hover {
+    background-color: #c1121f;
+    transform: translateY(-2px);
+}
+
+.spot-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.spot-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spot-item:hover .spot-controls {
+    opacity: 1;
+}
+
+.edit-spot,
+.delete-spot {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit-spot:hover,
+.delete-spot:hover {
+    transform: scale(1.1);
+}
+
+.edit-spot {
+    color: #457b9d;
+}
+
+.delete-spot {
+    color: #e63946;
+}
+
+[contenteditable="true"]:focus {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.spot-info h5[contenteditable="true"]:empty:before,
+.spot-info p[contenteditable="true"]:empty:before {
+    content: attr(data-placeholder);
+    color: #999;
+}
+
+/* 添加图片交互样式 */
+.spot-image-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.spot-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spot-overlay span {
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.spot-image-container:hover .spot-overlay {
+    opacity: 1;
+}
+
+/* 详情模态框样式 */
+.spot-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.spot-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.spot-modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.spot-modal.active .spot-modal-content {
+    transform: translateY(0);
+}
+
+.spot-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.spot-modal-close:hover {
+    color: var(--primary-color);
+}
+
+.spot-modal-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.spot-modal-info h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.spot-modal-info p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 更新景点卡片样式 */
+.spot-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.spot-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.spot-info h5 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* 更新悬停效果 */
+.spot-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spot-overlay span {
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.spot-image-container:hover .spot-overlay {
+    opacity: 1;
+}
+
+/* 更新模态框样式 */
+.spot-modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+/* 添加编辑相关样式 */
+.spot-modal-info [contenteditable="true"] {
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.spot-modal-info [contenteditable="true"]:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.spot-modal-info [contenteditable="true"]:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: 2px solid var(--primary-color);
+}
+
+.modal-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.save-edit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.save-edit-btn:hover {
+    background-color: #c1121f;
+    transform: translateY(-2px);
+}
+
+/* 更新景点部分样式 */
+.spots-section {
+    padding: 60px 0;
+    background-color: var(--background-color);
+    scroll-margin-top: 80px;
+}
+
+.spots-section h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-size: 2rem;
+    position: relative;
+}
+
+.spots-section h2:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+}
+
+.spot-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.upload-controls {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.add-spot-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-spot-btn:hover {
+    background-color: #c1121f;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .spot-list {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+}
+
+/* 非遗长河部分样式 */
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.timeline-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.timeline-chart-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    cursor: grab;
+}
+
+.timeline-chart-container:active {
+    cursor: grabbing;
+}
+
+/* 时间轴事件样式 */
+.timeline-event {
+    position: absolute;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-event:hover {
+    transform: scale(1.05);
+}
+
+/* 缩放控制按钮样式 */
+.zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zoom-indicator {
+    font-size: 14px;
+    color: var(--text-color);
+    padding: 4px 8px;
+    background: var(--light-color);
+    border-radius: 4px;
+}
+
+.zoom-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.zoom-controls button {
+    background-color: white;
+    border: 1px solid var(--light-color);
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zoom-controls button:hover:not(:disabled) {
+    background-color: var(--light-color);
+    transform: translateY(-2px);
+}
+
+.zoom-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.zoom-controls i {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.zoom-hint {
+    font-size: 12px;
+    color: #666;
+    max-width: 200px;
+    text-align: right;
+}
+
+/* 时间范围控制样式 */
+.time-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.time-indicator {
+    font-size: 14px;
+    color: var(--text-color);
+    padding: 4px 8px;
+    background: var(--light-color);
+    border-radius: 4px;
+}
+
+.time-hint {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+/* 时间轴事件框样式 */
+.timeline-chart-container canvas {
+    cursor: default;
+}
+
+.timeline-event-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 8px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.timeline-event-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-event-box .event-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.timeline-event-box .event-year {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.timeline-event-box .event-category {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-top: 4px;
+}

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索衡阳非遗</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.2.10/jquery.imagemapster.min.js"></script>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: '你的安全密钥',
+        }
+    </script>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=你的腾讯地图密钥"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.2.1/chartjs-plugin-zoom.min.js"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">衡阳市</div>
+        <div class="nav-links">
+            <a href="#home" class="active">首页</a>
+            <a href="#overview">衡阳非遗</a>
+            <a href="#culture">衡阳非遗图</a>
+            <a href="#heritage-intro">非遗介绍</a>
+            <a href="#heritage-timeline">非遗长河</a>
+            <a href="#footer">关于我们</a>
+        </div>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <section id="home" class="hero">
+        <div class="slider">
+            <div class="slide-track">
+                <!-- 每张图片重复两次以确保无缝循环 -->
+                <div class="slide">
+                    <img src="lmages\imgs\3f9dc825a3b28035ecd177af004c266.jpg" alt="衡山影子戏">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\0270e4ea8f3c577b59f8fec60e5703b.jpg" alt="南岳庙会">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\f080efced6f7e0305b6b86155534c50.jpg" alt="湖南渔鼓">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\fc1d023167df826d05e4ff6f955f774.jpg" alt="耒阳坛下乡铜锣">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\6f1adca3417547348d19ead7a4e5d08.jpg" alt="九市稻草龙">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\41cfdea26b4820ee63920b1b35cec8f.jpg" alt="衡州花鼓戏">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\b11c300a9d32b16eca04c8a90d43b21.jpg" alt="祁剧">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\c62c8ed82e5f7b35c8b4db68d862b58.jpg" alt="裕熹油纸伞">
+                </div>
+                <!-- 重复图片 -->
+                <div class="slide">
+                    <img src="lmages\imgs\3f9dc825a3b28035ecd177af004c266.jpg" alt="衡山影子戏">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\0270e4ea8f3c577b59f8fec60e5703b.jpg" alt="南岳庙会">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\f080efced6f7e0305b6b86155534c50.jpg" alt="湖南渔鼓">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\fc1d023167df826d05e4ff6f955f774.jpg" alt="耒阳坛下乡铜锣">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\6f1adca3417547348d19ead7a4e5d08.jpg" alt="九市稻草龙">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\41cfdea26b4820ee63920b1b35cec8f.jpg" alt="衡州花鼓戏">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\b11c300a9d32b16eca04c8a90d43b21.jpg" alt="祁剧">
+                </div>
+                <div class="slide">
+                    <img src="lmages\imgs\c62c8ed82e5f7b35c8b4db68d862b58.jpg" alt="裕熹油纸伞">
+                </div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>探索衡阳非遗</h1>
+            <p>湖南省重要的文化传承中心</p>
+            <a href="#overview" class="cta-button">了解更多</a>
+        </div>
+    </section>
+
+    <!-- 城市概况 -->
+    <section id="overview" class="section">
+        <h2>衡阳非遗</h2>
+        <div class="overview-content">
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <div id="districtChart" style="width: 100%; height: 400px;"></div>
+                </div>
+                <div class="chart-wrapper">
+                    <div id="levelChart" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 衡阳非遗图 -->
+    <section id="culture" class="section">
+        <h2>衡阳非遗图</h2>
+        <!-- 地图部分 -->
+        <div class="heritage-map-container">
+            <div class="heritage-buttons">
+                <button class="heritage-btn" data-heritage="shadowPlay">衡山影子戏世界级</button>
+                <button class="heritage-btn" data-heritage="templeFair">南岳庙会世界级</button>
+                <button class="heritage-btn" data-heritage="fishDrum">湖南渔鼓世界级</button>
+                <button class="heritage-btn" data-heritage="bronzeGong">耒阳坛下乡铜锣世界级</button>
+                <button class="heritage-btn" data-heritage="oilPaperUmbrella">裕熹油纸伞省级</button>
+                <button class="heritage-btn" data-heritage="huaguxi">衡州花鼓戏国家级</button>
+                <button class="heritage-btn" data-heritage="qiju">祁剧国家级</button>
+                <button class="heritage-btn" data-heritage="strawDragon">九市稻草龙省级</button>
+                <button class="heritage-btn" data-heritage="paperCutting">大桥剪纸省级</button>
+                <button class="heritage-btn" data-heritage="paperMaking">蔡伦古法造纸技艺国家级</button>
+                <button class="heritage-btn" data-heritage="folkSong">岳北山歌省级</button>
+                <button class="heritage-btn" data-heritage="pilgrimage">南岳朝圣省级</button>
+            </div>
+            <div class="heritage-map">
+                <div id="map-container" style="width: 100%; height: 500px;"></div>
+            </div>
+        </div>
+
+        <!-- 将热门景点推荐部分改为非遗介绍 -->
+        <div class="spots-section" id="heritage-intro">
+            <h2>衡阳非遗介绍</h2>
+            <div class="upload-controls">
+                <button class="add-spot-btn">
+                    <i class="fas fa-plus"></i> 添加新介绍
+                </button>
+                <input type="file" id="spotImageUpload" accept="image/*" style="display: none;">
+            </div>
+            <div class="spot-list">
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/b77e270e828b4b4d5287546f568c174.jpg" alt="常宁版画" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">常宁版画</h5>
+                        <p class="spot-description" style="display: none;">衡阳的常宁版画有着50多年的历史，以教师、工人、农民为主要创作群体，作品多次获奖并出国展出，被誉为"版画之乡"。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/6f1adca3417547348d19ead7a4e5d08.jpg" alt="九市稻草龙" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">九市稻草龙</h5>
+                        <p class="spot-description" style="display: none;">流传于衡阳县台源镇台九村肖家大屋一带，每年腊八后，村里会召集男女老少，用稻草精心扎成龙形，用以驱虫辟邪，春节初六兴灯一直舞到元宵节，正月十六再把龙身拿到稻田里烧掉。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/1343aa0ed1ce5f7c04916898f46add8.jpg" alt="九市稻草龙" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">九市稻草龙</h5>
+                        <p class="spot-description" style="display: none;">流传于衡南民间城乡各地的一种代表性龙舞，始创于衡南县东乡的江口镇九龙村，传说江口有九龙，至今还盛传着各种龙的传说。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/41cfdea26b4820ee63920b1b35cec8f.jpg" alt="衡州花鼓戏" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">衡州花鼓戏</h5>
+                        <p class="spot-description" style="display: none;">民间小戏剧种，流行于湘南各地，舞台语言以衡州方言为基础稍加提炼而成，主要声腔为"呐子牌子"和"川子调"。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/7877ff1e9066e0b1077147ecff5775c.jpg" alt="大桥剪纸" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">大桥剪纸</h5>
+                        <p class="spot-description" style="display: none;">始于明朝末年，至解放前夕形成了具有地域特征与地方特色的剪纸风格，新中国成立后在形式与内容上又有了进一步发展。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/16892254cd0483217ed1c59eaee091c.jpg" alt="蔡伦古法造纸技艺" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">蔡伦古法造纸技艺</h5>
+                        <p class="spot-description" style="display: none;">即利用麻头、破布、鱼网和树皮抄造植物纤维纸，发端于东汉元兴元年，耒阳是蔡伦的故乡，在蔡伦亲授造纸术的基础上，对蔡伦古法造纸技艺进行完整系统的传承和发展。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/6596558b22c23dea97a386dae25cda8.jpg" alt="岳北山歌" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">岳北山歌</h5>
+                        <p class="spot-description" style="display: none;">位于湖南省衡山县的白果镇，岳北人热情豪放，性格开朗，喜爱文化艺术，闻名遐迩的"岳北山歌"就出自这里。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/ef8939560c9d94170f658eb938836c6.jpg" alt="南岳朝圣" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">南岳朝圣</h5>
+                        <p class="spot-description" style="display: none;">俗称进香，"圣"即南岳衡山之神——司天昭圣帝，传说中的火神祝融，当地百姓和香客称之南岳圣帝菩萨，每年走上"心愿之旅"、登上南岳祝融峰的"香"达数百万之众。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/0270e4ea8f3c577b59f8fec60e5703b.jpg" alt="衡山影子戏" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">衡山影子戏</h5>
+                        <p class="spot-description" style="display: none;">表演内容丰富，艺人通过操纵皮影人偶，配合说唱和音乐，演绎各种故事，其人偶制作精美，表演生动传神。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/fc1d023167df826d05e4ff6f955f774.jpg" alt="南岳庙会" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">南岳庙会</h5>
+                        <p class="spot-description" style="display: none;">从农历腊月初八持续至正月十五，除夕夜的跨年敲钟是南岳大庙重要的祈福活动之一，此外还有祭祀祝融、投龙祈福许愿等仪式。文艺表演：包括南岳神戏、朝圣歌舞等，还有舞龙狮、踩高跷、扒旱船等民俗表演，以及威风锣鼓、扭秧歌等庞大阵容表演，而元宵舞龙争霸赛、火灯巡游等活动也精彩纷呈。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/f080efced6f7e0305b6b86155534c50.jpg" alt="耒阳坛下乡铜锣" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">耒阳坛下乡铜锣</h5>
+                        <p class="spot-description" style="display: none;">起源于三国时期，刘备派张飞驻守耒阳坛下，随军工匠将北方金属冶炼技术传入，为传统手工制作，工艺严谨复杂，各道工序环环相扣、一气呵成，对火候和技艺手法要求精准，其音质清脆纯净、洪亮悠远、音准好、经久耐用，有"一锤定音"的美誉。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/3f9dc825a3b28035ecd177af004c266.jpg" alt="湖南渔鼓" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">湖南渔鼓</h5>
+                        <p class="spot-description" style="display: none;">湖南渔鼓起源可追溯至唐代的"道情"，当时是道士传道化募时叙述道家之事与情的方式，湖南渔鼓曲目丰富，有"唐三千，宋八百"之说，可分为大传、私访、小记三类，多取材于历史故事、神话传说、民间故事等。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/c62c8ed82e5f7b35c8b4db68d862b58.jpg" alt="裕熹油纸伞" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">裕熹油纸伞</h5>
+                        <p class="spot-description" style="display: none;">油纸伞历史悠久，裕熹油纸伞作为我国工艺伞流派之一，它制作过程繁琐，需全手工完成，主要包括骨架和伞面制作。先选六年以上冬竹，经锯料、浸泡等处理后劈成竹条，制成伞骨并钻孔；伞面则用上好桃花纸，在生柿子漆里浸透后，一张张贴在伞骨上，随后绘上图案、涂上桐油，在室内吊起阴干， 80多道工序耗时6天左右。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/41cfdea26b4820ee63920b1b35cec8f.jpg" alt="衡州花鼓戏" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">衡州花鼓戏</h5>
+                        <p class="spot-description" style="display: none;">衡州花鼓戏以小生、小旦、小丑"三小"行为主，尤以"丑行"为首。表演充满生活气息，演员常农忙时务农，闲暇时唱戏，与观众互动性强，具有较强的即兴表演成分。有165曲之多，包括《打铁》《南岳八大怪》《书房调叔》等，剧本通俗易懂，杂用土语乡音，生活气息浓郁，多反映劳动、爱情、家庭生活等，体现了湘南地区的民俗文化和风土人情。</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <div class="spot-image-container">
+                        <img src="lmages/imgs/b11c300a9d32b16eca04c8a90d43b21.jpg" alt="祁剧" class="spot-image">
+                        <div class="spot-overlay">
+                            <span>点击查看详情</span>
+                        </div>
+                        <div class="spot-controls">
+                            <button class="edit-spot"><i class="fas fa-edit"></i></button>
+                            <button class="delete-spot"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="spot-info">
+                        <h5 contenteditable="true">祁剧</h5>
+                        <p class="spot-description" style="display: none;">祁剧兼有高腔、昆腔、弹腔三种声腔。高腔演唱时，演员独唱，鼓师帮腔，声调高亢激昂，节奏自由；昆腔则较为婉转细腻，注重唱腔的韵味和旋律的优美；弹腔分为南路和北路，南路柔和婉转，北路高亢刚劲。其伴奏乐器有高音战鼓、帽形燥鼓、硬弓祁胡等，它剧目繁多，有《目连传》《精忠传》《观音戏》《西游记》《夫子戏》《杨门女将》《孟丽君》等，涵盖历史故事、神话传说、民间故事等。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 非遗长河 -->
+    <section id="heritage-timeline" class="section">
+        <h2>非遗长河</h2>
+        <div class="timeline-container">
+            <div class="timeline-controls">
+                <button class="category-button active" data-category="all">全部</button>
+                <button class="category-button" data-category="world">世界级</button>
+                <button class="category-button" data-category="national">国家级</button>
+                <button class="category-button" data-category="provincial">省级</button>
+            </div>
+            <div class="timeline-chart-container">
+                <canvas id="timelineChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>关于我们</h3>
+                <p>23艺术与科技3组</p>
+            </div>
+            <div class="footer-section">
+                <h3>联系方式</h3>
+                <p>微信联系yz1357942</p>
+            </div>
+            <div class="footer-section">
+                <h3>关注我们</h3>
+                <div class="social-links">
+                    <a href="http://hyfywap.wentiyun.cn/index.html" target="_blank">官方网站</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 23艺术与科技3组组长保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="timeline.js"></script>
+</body>
+</html> 
